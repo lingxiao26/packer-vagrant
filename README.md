@@ -20,14 +20,14 @@ Add the built box to Vagrant:
 
 You can configure each template to match your requirements by setting the following [user variables](https://packer.io/docs/templates/user-variables.html).
 
- User Variable       | Default Value | Description
----------------------|---------------|----------------------------------------------------------------------------------------
- `compression_level` | 6             | [Documentation](https://packer.io/docs/post-processors/vagrant.html#compression_level)
- `cpus`              | 1             | Number of CPUs
- `disk_size`         | 40000         | [Documentation](https://packer.io/docs/builders/virtualbox-iso.html#disk_size)
- `headless`          | 0             | [Documentation](https://packer.io/docs/builders/virtualbox-iso.html#headless)
- `memory`            | 512           | Memory size in MB
- `mirror`            |               | A URL of the mirror where the ISO image is available
+ | User Variable       | Default Value | Description                                                                            |
+ | ------------------- | ------------- | -------------------------------------------------------------------------------------- |
+ | `compression_level` | 6             | [Documentation](https://packer.io/docs/post-processors/vagrant.html#compression_level) |
+ | `cpus`              | 1             | Number of CPUs                                                                         |
+ | `disk_size`         | 40000         | [Documentation](https://packer.io/docs/builders/virtualbox-iso.html#disk_size)         |
+ | `headless`          | 0             | [Documentation](https://packer.io/docs/builders/virtualbox-iso.html#headless)          |
+ | `memory`            | 512           | Memory size in MB                                                                      |
+ | `mirror`            |               | A URL of the mirror where the ISO image is available                                   |
 
 ### Example
 

@@ -1,0 +1,9 @@
+---
+# playbook.yml
+- name: "init os env"
+  hosts: 127.0.0.1
+  become: true
+  gather_facts: no
+
+  roles:
+    - role: init
