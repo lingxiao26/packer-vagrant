@@ -36,15 +36,7 @@
   ],
   "provisioners": [
     {
-      "scripts": [
-        "scripts/centos-7.9/repo.sh",
-        "scripts/centos/virtualbox.sh",
-        "scripts/common/vagrant.sh",
-        "scripts/common/sshd.sh",
-        "scripts/common/install_common_tools.sh",
-        "scripts/centos/locale.sh",
-        "scripts/centos-7.9/cleanup.sh"
-      ],
+      "scripts": ["scripts/init-image.sh"],
       "type": "shell"
     },
     {
