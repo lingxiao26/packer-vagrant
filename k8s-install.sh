@@ -12,13 +12,18 @@ disable_swap() {
 
 edit_hosts() {
   cat <<EOF >/etc/hosts
-127.0.0.1	node1	node1
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
 192.168.66.201 node1
 192.168.66.202 node2
 192.168.66.203 node3
 EOF
+}
+
+bash_completion() {
+  echo 'source <(kubectl completion bash)' >>~/.bashrc
+  echo 'alias k=kubectl' >>~/.bashrc
+  echo 'complete -F __start_kubectl k' >>~/.bashrc
 }
 
 modify_kernel_args() {
@@ -99,7 +104,7 @@ EOF
 }
 
 init_k8s() {
-  kubeadm init --pod-network-cidr=10.244.0.0/16--apiserver-advertise-address=192.168.66.201
+  kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=192.168.66.201
 }
 
 master_install() {
@@ -108,6 +113,7 @@ master_install() {
   edit_hosts
   modify_kernel_args
   config_ipvs
+  bash_completion
   install_k8s_components
   pull_k8s_depend_images
   init_k8s
@@ -123,4 +129,5 @@ node_install() {
   pull_k8s_depend_images
 }
 
+#master_install
 node_install
