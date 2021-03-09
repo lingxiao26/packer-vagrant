@@ -5,15 +5,18 @@ box = "centos-7.9"
 vms = [
   {
     "hostname" => "node1",
-    "ip" => "192.168.66.201"
+    "ip" => "192.168.66.201", 
+    "ssh_forwarded_port" => 2201
   },
   {
     "hostname" => "node2",
-    "ip" => "192.168.66.202"
+    "ip" => "192.168.66.202",
+    "ssh_forwarded_port" => 2202
   },
   {
     "hostname" => "node3",
-    "ip" => "192.168.66.203"
+    "ip" => "192.168.66.203",
+    "ssh_forwarded_port" => 2203
   }
 ]
 
@@ -44,6 +47,7 @@ Vagrant.configure("2") do |config|
     config.vm.define vm['hostname'] do |node|
       # node.vm.network :private_network, ip: "192.168.66.201", bridge: 'vboxnet0'
       node.vm.network :private_network, ip: vm['ip']
+      node.vm.network "forwarded_port", guest: 22, host: vm['ssh_forwarded_port']
       node.vm.hostname = vm['hostname']
     end
   end
