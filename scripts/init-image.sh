@@ -70,6 +70,7 @@ install_common_tools() {
   yum install git -y
   yum install vim -y
   yum install bash-completion -y
+  yum install tree jq -y
 }
 
 install_docker() {
